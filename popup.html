@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Twitter Scraper1</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        margin: 8px;
+        text-align: center;
+    }
+
+    .cont {
+        width: 300px;
+    }
+
+    .list-cont {
+        overflow: auto;
+
+        max-height: 400px;
+        min-height: 100px;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        padding: 8px;
+        background-color: #f3f3f3;
+    }
+
+    li:nth-child(even) {
+        padding: 8px;
+        background-color: #ddd;
+    }
+
+    li .metas {
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    li .meta .data {
+
+    }
+
+    li .meta .count {
+
+    }
+
+    .actions {
+        margin: 10px;
+        display: flex;
+        justify-content: end;
+        gap: 10px;
+    }
+
+    .empty-data {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #bbb;
+        height: 80px;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 4px 11px;
+    }
+</style>
+
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .2s;
+        transition: .2s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .2s;
+        transition: .2s;
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+</style>
+<body>
+<div class="cont">
+    <div class="title">
+        <h1>Scraped Tweets</h1>
+
+        <label class="switch">
+            <input id="is_active" type="checkbox" checked>
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    <div class="list-cont">
+        <div id="emptyData" class="empty-data hidden">
+            No Data Scraped ...
+        </div>
+        <ul id="sessionList"></ul>
+    </div>
+    <div class="actions">
+        <button id="autoScroll">Auto Scroll</button>
+    </div>
+    <div class="actions">
+        <button id="deleteAllButton" type="button">Delete all</button>
+        <div style="flex-grow: 1"></div>
+        <button id="downloadBtn">Download</button>
+        <button id="viewButton" type="button">Open</button>
+    </div>
+</div>
+<script src="assets/global_luxon.min.js"></script>
+<script src="assets/xlsx.full.min.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

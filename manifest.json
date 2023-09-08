@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Twitter Scraper",
+  "version": "1.0",
+  "permissions": ["activeTab", "storage", "downloads", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://twitter.com/*", "*://m.facebook.com/*"],
+      "js": ["assets/code.jquery.com_jquery-3.7.0.min.js", "content_fb.js" , "content_tw.js"]
+
+    }
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  }
+
+
+
+}

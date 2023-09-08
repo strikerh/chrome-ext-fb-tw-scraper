@@ -1,0 +1,14 @@
+{
+  "name": "scrape2_twiter_ts",
+  "version": "1.0.0",
+  "description": "scrape posts fron twiter on scrolling",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.1.6"
+  }
+}
