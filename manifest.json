@@ -10,7 +10,7 @@
   "content_scripts": [
     {
       "matches": ["*://twitter.com/*", "*://m.facebook.com/*"],
-      "js": ["assets/code.jquery.com_jquery-3.7.0.min.js", "content_fb.js" , "content_tw.js"]
+      "js": ["assets/code.jquery.com_jquery-3.7.0.min.js", "content_fb2.js" , "content_tw.js"]
 
     }
   ],

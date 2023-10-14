@@ -13,7 +13,7 @@ $(document).ready(function () {
              // const sdsd ={...dd.tweets.map((ii)=>({...ii, sessionId: dd.session, sessionDate: dd.date, sessionUrl: dd.url}))}
             // console.log('sdsd', sdsd)
             tweets.push(...dd.tweets.map((ii)=>({...ii, sessionId: dd.session, sessionDate: dd.date,
-                sessionUrl: decodeURI(dd.url).replace('https://twitter.com', '')})) );
+                sessionUrl: decodeURI(dd.url).replace('https://twitter.com', '').replace('https://m.facebook.com', 'FB')})) );
         })
         const mappedTweets = tweets.map((d)=>({...d , ownerId:  d.owner.id, time: d.time || ''}))
         console.log('data', tweets);
@@ -23,14 +23,20 @@ $(document).ready(function () {
     function prepareTable(dataSet) {
         new DataTable('#tweetList', {
             ordering: true,
+          
+         
             "pageLength": 100,
             dom: 'Bfrtip',
             buttons: [
-                'excel'
+                'excel',
+                'file-json'
             ],
             columns: [
+                {title: 'item_id', data: 'item_id'},
+                {title: 'time', data: 'time'},
+                {title: 'text', data: 'text', className: 'rtl'},
                 {title: 'post', data: 'post', className: 'rtl'},
-                {title: 'owner', data: 'ownerId'},
+                {title: 'owner', data: 'owner.name'},
                 {title: 'time', data: 'time'},
                 {title: 'session', data: 'sessionId'},
                 {title: 'session URL', data: 'sessionUrl'},
